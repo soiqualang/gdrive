@@ -1,0 +1,49 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>Upload to Google Drive - Anigoo</title>
+</head>
+<style type="text/css">
+body {
+	background-color: #FFFFFF;
+}
+</style>
+<BR>
+<BR>
+<BR>
+<div align="center">
+  <table width="459" border="0">
+    <tbody>
+      <tr>
+        <td width="462"><div align="center">
+          <hr>
+        </div>
+          <form id="myForm" align="center">
+            <input type="text" name="myName" placeholder="Your name..">
+            <p>Your Name must have at least 2 characters</br>Tên bạn phải có ít nhất 2 ký tự</p>
+            <input type="file" name="myFile">
+            <input type="submit" 
+            value="Upload File" 
+           onclick="this.value='Uploading...................';
+                    google.script.run.withSuccessHandler(fileUploaded)
+                    .uploadFiles(this.parentNode);
+                    return false;">
+          </form>
+          <div id="output"></div>
+          <script>
+    function fileUploaded(status) {
+        document.getElementById('myForm').style.display = 'none';
+        document.getElementById('output').innerHTML = status;
+    }
+          </script>
+        <style>
+ input { display:block; margin: 20px;min-width: 200px;}
+ 
+          </style>
+        <hr></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>&nbsp;</h3>
+  <p>&nbsp;</p>
+</div>
